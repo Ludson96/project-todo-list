@@ -3,6 +3,24 @@ const ol = document.querySelector('ol');
 const texto = document.getElementById('texto-tarefa');
 const btnLimpaLista = document.getElementById('apaga-tudo');
 const btnLimpaCompletos = document.getElementById('remover-finalizados');
+const btnSalvaLista = document.getElementById('salvar-tarefas');
+const brtRemoveSelecionado = document.getElementById('remover-selecionado');
+
+// Requisito 12
+function saveLocalStorage() {
+  localStorage.setItem('lista', ol.innerHTML);
+}
+
+btnSalvaLista.addEventListener('click', saveLocalStorage);
+
+function loadLocalStorage() {
+  const load = localStorage.getItem('lista');
+  if (load) {
+    ol.innerHTML = load;
+  }
+}
+
+window.onload = loadLocalStorage;
 
 // Requisito 7 e 8
 function alteraGray(event) {
@@ -52,3 +70,13 @@ function removeCompleted() {
 }
 
 btnLimpaCompletos.addEventListener('click', removeCompleted);
+
+// Requisito 14
+function removeGray() {
+  const elementGray = document.querySelector('.gray');
+  if (elementGray) {
+    elementGray.remove();
+  }
+}
+
+brtRemoveSelecionado.addEventListener('click', removeGray);
