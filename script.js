@@ -5,6 +5,8 @@ const btnLimpaLista = document.getElementById('apaga-tudo');
 const btnLimpaCompletos = document.getElementById('remover-finalizados');
 const btnSalvaLista = document.getElementById('salvar-tarefas');
 const brtRemoveSelecionado = document.getElementById('remover-selecionado');
+const btnUp = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
 
 // Requisito 12
 function saveLocalStorage() {
@@ -70,6 +72,40 @@ function removeCompleted() {
 }
 
 btnLimpaCompletos.addEventListener('click', removeCompleted);
+
+// Requisito 13
+// MOVER ITEM P/ CIMA E P/ BAIXO
+function up() {
+  const getLi = document.getElementsByTagName('li');
+  for (let i = 0; i < getLi.length; i += 1) {
+    if (getLi[i].classList.contains('gray')
+    && getLi[i] !== getLi[0]) {
+      const item = getLi[i];
+      const previous = getLi[i - 1];
+      const newItem = item;
+      ol.removeChild(item);
+      ol.insertBefore(newItem, previous);
+    }
+  }
+}
+
+btnUp.addEventListener('click', up);
+
+function down() {
+  const getLi = document.getElementsByTagName('li');
+  for (let i = getLi.length - 1; i >= 0; i -= 1) {
+    if (getLi[i].classList.contains('gray')
+    && getLi[i] !== getLi[getLi.length - 1]) {
+      const next = getLi[i + 2];
+      const item = getLi[i];
+      const newItem = item;
+      ol.removeChild(item);
+      ol.insertBefore(newItem, next);
+    }
+  }
+}
+
+btnDown.addEventListener('click', down);
 
 // Requisito 14
 function removeGray() {
