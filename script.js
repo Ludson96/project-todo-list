@@ -74,16 +74,13 @@ function removeCompleted() {
 btnLimpaCompletos.addEventListener('click', removeCompleted);
 
 // Requisito 13
-// MOVER ITEM P/ CIMA E P/ BAIXO
 function up() {
   const getLi = document.getElementsByTagName('li');
   for (let i = 0; i < getLi.length; i += 1) {
     if (getLi[i].classList.contains('gray')
     && getLi[i] !== getLi[0]) {
-      const item = getLi[i];
       const previous = getLi[i - 1];
-      const newItem = item;
-      ol.removeChild(item);
+      const newItem = getLi[i];
       ol.insertBefore(newItem, previous);
     }
   }
@@ -96,11 +93,11 @@ function down() {
   for (let i = getLi.length - 1; i >= 0; i -= 1) {
     if (getLi[i].classList.contains('gray')
     && getLi[i] !== getLi[getLi.length - 1]) {
-      const next = getLi[i + 2];
-      const item = getLi[i];
-      const newItem = item;
-      ol.removeChild(item);
-      ol.insertBefore(newItem, next);
+      const next = getLi[i + 1];
+      // const next = getLi[i + 2];
+      const newItem = getLi[i];
+      // ol.insertBefore(newItem, next);
+      next.after(newItem);
     }
   }
 }
