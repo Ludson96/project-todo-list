@@ -1,10 +1,10 @@
-# Repositório do projeto Lista de Tarefas
+# Repositório do projeto Lista de Tarefas ✔️
 
-# :construction: Estilização em desenvolvimento ! :construction:
+# 🚧 Estilização em desenvolvimento ! 🚧
 
 ## Módulo: FUNDAMENTOS
 
- Repositório possuí projeto desenvolvido no período que estive na **Trybe**, abordando sobre conceitos de estilização, manipulação do DOM com Javascript e utilização do Local Storage para guardar notas referente ao usuário que está na aplicação.
+Repositório possuí projeto desenvolvido no período que estive na **Trybe**, abordando sobre conceitos de estilização, manipulação do DOM com Javascript , Web Storage e reutilização de código.
 
 ## Informações de aprendizados
 
